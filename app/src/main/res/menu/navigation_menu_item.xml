@@ -3,15 +3,12 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/action_home"
-            android:icon="@mipmap/ic_launcher_round"
-            android:title="Profile" />
+            android:title="@string/home" />
         <item
             android:id="@+id/action_description"
-            android:icon="@mipmap/ic_launcher_round"
-            android:title="Wallet" />
+            android:title="@string/description" />
         <item
             android:id="@+id/action_setting"
-            android:icon="@mipmap/ic_launcher_round"
-            android:title="Setting" />
+            android:title="@string/setting" />
     </group>
 </menu>

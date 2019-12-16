@@ -5,7 +5,7 @@ import io.realm.RealmObject
 
 open class Facts(@SerializedName(value = "title") var title: String,
                  @SerializedName(value = "description") var description: String,
-                 @SerializedName(value = "imageHref") var imageHref: String) {
+                 @SerializedName(value = "imageHref") var imageHref: String) : RealmObject() {
     constructor() : this("", "", "")
 
 }

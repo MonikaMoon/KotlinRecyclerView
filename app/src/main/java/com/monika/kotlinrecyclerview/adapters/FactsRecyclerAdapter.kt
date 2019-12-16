@@ -22,8 +22,8 @@ class FactsRecyclerAdapter(var context: Context, var factsList: ArrayList<Facts>
 
     //this method is binding the data on the list
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textViewTitle?.text = factsList.get(position).title
-        holder.textViewDescription?.text = factsList.get(position).description
+        holder.textViewTitle.text = factsList.get(position).title
+        holder.textViewDescription.text = factsList.get(position).description
         Glide.with(context)
             .load(factsList.get(position).imageHref)
             .into(holder.imageView)
@@ -34,11 +34,11 @@ class FactsRecyclerAdapter(var context: Context, var factsList: ArrayList<Facts>
         return factsList.size
     }
 
-    //the class is hodling the list view
+    //the class is holding the list view
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val textViewTitle = itemView.findViewById(R.id.textview_title) as TextView
         val textViewDescription  = itemView.findViewById(R.id.textview_description) as TextView
-        val imageView  = itemView.image_view
+        val imageView  = itemView.image_view!!
     }
 }

@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val actionbar: ActionBar? = supportActionBar
         actionbar?.apply {
             setDisplayHomeAsUpEnabled(true)
-            //setHomeAsUpIndicator(R.mipmap.baseline_menu_white_18dp)
         }
 
         val toggle = ActionBarDrawerToggle(
@@ -40,9 +39,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         displayScreen(-1)
 
-        val kotlinFragment = FactsListFragment.newInstance(getString(R.string.home))
+        // Replace the fragment on container
         supportFragmentManager.beginTransaction()
-            .replace(R.id.relative_layout, kotlinFragment, FactsListFragment.javaClass.name).commit()
+            .replace(R.id.relative_layout, FactsListFragment())
+            .commit()
     }
 
     override fun onBackPressed() {
@@ -57,9 +57,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (id) {
             R.id.action_home -> {
                 toast(getString(R.string.home))
-                val kotlinFragment = FactsListFragment.newInstance(getString(R.string.home))
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.relative_layout, kotlinFragment, FactsListFragment.javaClass.name)
+                    .replace(R.id.relative_layout, FactsListFragment())
                     .commit()
             }
 
