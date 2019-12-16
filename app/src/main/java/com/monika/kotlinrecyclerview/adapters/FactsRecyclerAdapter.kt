@@ -1,6 +1,5 @@
 package com.monika.kotlinrecyclerview.adapters
 
-
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -22,11 +21,21 @@ class FactsRecyclerAdapter(var context: Context, var factsList: ArrayList<Facts>
 
     //this method is binding the data on the list
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textViewTitle.text = factsList.get(position).title
-        holder.textViewDescription.text = factsList.get(position).description
-        Glide.with(context)
-            .load(factsList.get(position).imageHref)
-            .into(holder.imageView)
+        if (factsList.get(position).title != null) {
+
+            holder.itemView.visibility = View.VISIBLE
+            holder.itemView.layoutParams =
+                RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+
+            holder.textViewTitle.text = factsList.get(position).title
+            holder.textViewDescription.text = factsList.get(position).description
+            Glide.with(context)
+                .load(factsList.get(position).imageHref)
+                .into(holder.imageView)
+        } else {
+            holder.itemView.visibility = View.GONE
+            holder.itemView.layoutParams = RecyclerView.LayoutParams(0, 0)
+        }
     }
 
     //this method is giving the size of the list
